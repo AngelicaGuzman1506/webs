@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iraku - Especialistas en Ramen, Fast Food y Gourmet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .categoria-header {
+            text-align: center;
+            background: linear-gradient(135deg, #ff6f61, #de1b1b);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .producto img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .producto {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        .producto:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .precio {
+            font-weight: bold;
+            color: #ff5722;
+            font-size: 1.2rem;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #de1b1b;
+        }
+    </style>
+</head>
+<body>
+    <section id="ramen" class="categoria">
+        <div class="categoria-header">
+            <h2>Ramen</h2>
+            <p>Auténtico ramen japonés preparado con ingredientes premium</p>
+        </div>
+        <div class="grid-productos">
+            <!-- 20 Platos Adicionales -->
+            <script>
+                const platos = [
+                    "Tonkotsu Ramen", "Miso Ramen", "Shoyu Ramen", "Spicy Ramen", "Veggie Ramen",
+                    "Karaage Don", "Tempura Udon", "Sukiyaki", "Takoyaki", "Okonomiyaki",
+                    "Gyoza", "Katsu Curry", "Yakisoba", "Unagi Don", "Chashu Don",
+                    "Omurice", "Onigiri", "Soba Frío", "Hiyashi Chuka", "Tantanmen"
+                ];
+                const container = document.querySelector('.grid-productos');
+                platos.forEach((plato, index) => {
+                    container.innerHTML += `
+                        <div class="producto">
+                            <img src="https://source.unsplash.com/200x150/?${plato.replace(' ', '-').toLowerCase()}" alt="${plato}">
+                            <h3>${plato}</h3>
+                            <p>Delicioso ${plato} con ingredientes auténticos.</p>
+                            <p class="precio">$${(Math.random() * 10 + 10).toFixed(2)}</p>
+                            <button>Ordenar ahora</button>
+                        </div>
+                    `;
+                });
+            </script>
+        </div>
+    </section>
+</body>
+</html>
